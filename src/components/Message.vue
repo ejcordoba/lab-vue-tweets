@@ -1,7 +1,9 @@
 <template>
-  <div></div>
+  <p className="message">{{ message }}</p>
 </template>
 
-<script setup></script>
+<script setup>
+const props = defineProps(["message"]);
+</script>
 
 <style lang="scss" scoped></style>

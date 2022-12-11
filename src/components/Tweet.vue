@@ -1,28 +1,14 @@
 <template>
   <div className="tweet" v-for="tweet in tweetsArray">
-    <img :src="tweet.user.image" className="profile" alt="profile" />
+    <ProfileImage :image="tweet.user.image" />
 
     <div className="body">
       <div className="top">
-        <span className="user">
-          <span className="name">{{ tweet.user.name }}</span>
-          <span className="handle">@{{ tweet.user.handle }}</span>
-        </span>
-
-        <span className="timestamp">{{ tweet.timestamp }}</span>
+        <User :name="tweet.user.name" :handle="tweet.user.handle" />
+        <Timestamp :timestamp="tweet.timestamp" />
       </div>
-
-      <p className="message">
-        {{ tweet.message }}
-      </p>
-
-      <div className="actions">
-        <!-- Font Awesome icons -->
-        <i class="far fa-comment"></i>
-        <i class="fas fa-retweet"></i>
-        <i class="far fa-heart"></i>
-        <i class="fas fa-share"></i>
-      </div>
+      <Message :message="tweet.message" />
+      <Actions />
     </div>
 
     <i class="fas fa-ellipsis-h"></i>
@@ -30,9 +16,13 @@
 </template>
 
 <script setup>
+import ProfileImage from "../components/ProfileImage.vue";
+import User from "../components/User.vue";
+import Timestamp from "../components/Timestamp.vue";
+import Message from "../components/Message.vue";
+import Actions from "../components/Actions.vue";
 const props = defineProps(["tweet"]);
 const tweetsArray = props.tweet;
-console.log(tweetsArray[0]);
 </script>
 
 <style scoped>

@@ -1,7 +1,9 @@
 <template>
-  <div></div>
+  <span className="timestamp">{{ timestamp }}</span>
 </template>
 
-<script setup></script>
+<script setup>
+const props = defineProps(["timestamp"]);
+</script>
 
 <style lang="scss" scoped></style>

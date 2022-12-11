@@ -1,7 +1,9 @@
 <template>
-  <div></div>
+  <img :src="image" className="profile" alt="profile" />
 </template>
 
-<script setup></script>
+<script setup>
+const props = defineProps(["image"]);
+</script>
 
 <style lang="scss" scoped></style>
